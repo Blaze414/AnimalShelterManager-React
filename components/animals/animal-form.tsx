@@ -60,9 +60,17 @@ export function AnimalForm() {
     },
   })
 
-  function onSubmit(data: FormValues) {
+  async function onSubmit(data: FormValues) {
     console.log(data)
-    // Here you would typically send the data to your API
+    const response = await fetch('/api/animals', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    const result = await response.json()
+    console.log(result)
   }
 
   return (

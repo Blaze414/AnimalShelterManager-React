@@ -37,8 +37,17 @@ export function IntegrationSettings() {
     },
   })
 
-  function onSubmit(data: FormValues) {
+  async function onSubmit(data: FormValues) {
     console.log(data)
+    const response = await fetch('/api/integration', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    const result = await response.json()
+    console.log(result)
   }
 
   return (
