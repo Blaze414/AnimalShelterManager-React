@@ -16,7 +16,7 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
-ROOT_DIR = Path(__file__).resolve().parents[1]
+ROOT_DIR = Path(__file__).resolve().parent
 DATA_DIR = ROOT_DIR / "data"
 DIST_DIR = ROOT_DIR / "dist"
 DB_PATH = DATA_DIR / "shelter.db"
