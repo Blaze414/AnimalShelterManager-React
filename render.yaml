@@ -11,3 +11,5 @@ services:
         value: 0.0.0.0
       - key: SHELTER_API_PORT
         value: 8000
+      - key: PORT
+        value: 8000

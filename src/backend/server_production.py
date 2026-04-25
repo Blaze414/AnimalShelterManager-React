@@ -152,7 +152,7 @@ def init_db() -> None:
             ("Adoption Pipeline Review", "Operations", "2024-06-06", "Ready", "PDF"),
         ]
         cursor.executemany(
-            "INSERT INTO reports (title, category, date, status, format) VALUES (?, ?, ?, ?)",
+            "INSERT INTO reports (title, category, date, status, format) VALUES (?, ?, ?, ?, ?)",
             reports,
         )
 
@@ -815,8 +815,9 @@ class ShelterRequestHandler(BaseHTTPRequestHandler):
 
 def run() -> None:
     init_db()
-    server = ThreadingHTTPServer((HOST, PORT), ShelterRequestHandler)
-    print(f"Shelter backend running at http://{HOST}:{PORT}")
+    port = int(os.environ.get("SHELTER_API_PORT") or os.environ.get("PORT") or "8000")
+    server = ThreadingHTTPServer((HOST, port), ShelterRequestHandler)
+    print(f"Shelter backend running at http://{HOST}:{port}")
     try:
         server.serve_forever()
     except KeyboardInterrupt:

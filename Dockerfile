@@ -20,10 +20,7 @@ COPY --from=frontend-build /app/dist ./dist
 # Copy production server (handles both API + static serving)
 COPY src/backend/server_production.py ./server.py
 
-# Copy data directory (empty - will be created at runtime)
-COPY data/ ./data/
-
-# Create data directory if not exists (SQLite will create on first run)
+# Create data directory (SQLite DB auto-created at runtime)
 RUN mkdir -p /app/data
 
 EXPOSE 8000
