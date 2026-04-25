@@ -1,0 +1,13 @@
+# render.yaml for Animal Shelter Manager
+
+services:
+  - type: web
+    name: animal-shelter-manager
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: SHELTER_API_HOST
+        value: 0.0.0.0
+      - key: SHELTER_API_PORT
+        value: 8000

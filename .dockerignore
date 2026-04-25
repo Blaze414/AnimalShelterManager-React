@@ -1,0 +1,35 @@
+# Dependencies built in Docker
+node_modules
+npm-debug.log*
+
+# Git
+.git
+.gitignore
+
+# Build output (rebuilt inside Docker)
+dist
+dist-ssr
+
+# Editor
+.vscode
+.idea
+*.suo
+
+# OS
+.DS_Store
+
+# Logs
+logs
+*.log
+
+# Data (created at runtime)
+data/
+
+# Environment
+.env
+*.local
+
+# Test artifacts
+playwright-report
+test-results
+coverage
